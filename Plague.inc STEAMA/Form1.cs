@@ -46,9 +46,14 @@ namespace Plague.inc_STEAMA
         {
             return waktuInfeksiAwal;
         }
-        public double Neighbor(City B)
+        public double getNeighbors(City B)
         {
             return neighbors[B];
+        }
+
+        public void setWaktuInfeksiAwal(int waktuInfeksiAwal)
+        {
+            this.waktuInfeksiAwal = waktuInfeksiAwal;
         }
     }
 
@@ -61,8 +66,10 @@ namespace Plague.inc_STEAMA
 
         public double fungsiPenyebaran(City A, City B, int hari)
         {
-            return fungsiLogistik(A, hari) * A.Neighbor(B);
+            return fungsiLogistik(A, hari) * A.getNeighbors(B);
         }
+
+
 
     }
 
