@@ -57,8 +57,11 @@ namespace Plague.inc_STEAMA
         }
     }
 
+
     public class PlagueInc 
     {
+        private List<City> cityColection;
+        int jumlahCity;
         public double fungsiLogistik(City kota, int hari)
         {
             return (kota.getPenduduk() / (1 + (kota.getPenduduk() - 1)*Math.Exp(-0.25*hari-kota.getT())));
@@ -67,6 +70,11 @@ namespace Plague.inc_STEAMA
         public double fungsiPenyebaran(City A, City B, int hari)
         {
             return fungsiLogistik(A, hari) * A.getNeighbors(B);
+        }
+
+        public void initializeCity()
+        {
+            
         }
 
 
