@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Plague.inc_STEAMA
 {
@@ -28,4 +29,38 @@ namespace Plague.inc_STEAMA
         }
         
     }
+
+    public class City 
+    {
+        Dictionary<City, double> neighbors;
+        private int penduduk, waktuInfeksiAwal;
+        public int getP()
+        {
+            return penduduk;
+        }
+        public int getT()
+        {
+            return waktuInfeksiAwal;
+        }
+        public double Neighbor(City B)
+        {
+            return neighbors[B];
+        }
+    }
+
+    public class PlagueInc 
+    {
+        public Dictionary<City, double> Neighborhood;
+    public double fungsiLogistik(City kota, int hari)
+        {
+            return (kota.getP() / (1 + (kota.getP() - 1)*Math.Exp(-0.25*hari-kota.getT())));
+        }
+
+        public double fungsiPenyebaran(City A, City B, int hari)
+        {
+            return fungsiLogistik(A, hari) * A.Neighbor(B);
+        }
+
+    }
+
 }

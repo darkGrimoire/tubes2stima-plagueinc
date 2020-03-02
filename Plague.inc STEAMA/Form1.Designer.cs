@@ -31,13 +31,11 @@
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelLowerThird = new System.Windows.Forms.Panel();
             this.panelMainMenu = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panelLowerThird.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
-            this.panelSideMenu.BackColor = System.Drawing.Color.Navy;
+            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.ForeColor = System.Drawing.Color.Cyan;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
@@ -48,8 +46,7 @@
             // 
             // panelLowerThird
             // 
-            this.panelLowerThird.BackColor = System.Drawing.Color.Navy;
-            this.panelLowerThird.Controls.Add(this.textBox1);
+            this.panelLowerThird.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelLowerThird.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLowerThird.Location = new System.Drawing.Point(200, 521);
             this.panelLowerThird.Name = "panelLowerThird";
@@ -59,22 +56,12 @@
             // 
             // panelMainMenu
             // 
-            this.panelMainMenu.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.panelMainMenu.BackColor = System.Drawing.Color.White;
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMainMenu.Location = new System.Drawing.Point(200, 0);
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(836, 522);
             this.panelMainMenu.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(0, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(836, 15);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "©2020 Hewwo uwu";
             // 
             // Form1
             // 
@@ -88,8 +75,6 @@
             this.Name = "Form1";
             this.Text = "Plague .inc - STEAMA ver.";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panelLowerThird.ResumeLayout(false);
-            this.panelLowerThird.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -99,7 +84,6 @@
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Panel panelLowerThird;
         private System.Windows.Forms.Panel panelMainMenu;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
