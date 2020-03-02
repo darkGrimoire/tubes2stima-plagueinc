@@ -38,7 +38,7 @@ namespace Plague.inc_STEAMA
     {
         private Dictionary<City, double> neighbors;
         private int penduduk, waktuInfeksiAwal;
-        public int getP()
+        public int getPenduduk()
         {
             return penduduk;
         }
@@ -61,13 +61,14 @@ namespace Plague.inc_STEAMA
     {
         public double fungsiLogistik(City kota, int hari)
         {
-            return (kota.getP() / (1 + (kota.getP() - 1)*Math.Exp(-0.25*hari-kota.getT())));
+            return (kota.getPenduduk() / (1 + (kota.getPenduduk() - 1)*Math.Exp(-0.25*hari-kota.getT())));
         }
 
         public double fungsiPenyebaran(City A, City B, int hari)
         {
             return fungsiLogistik(A, hari) * A.getNeighbors(B);
         }
+
 
 
 
