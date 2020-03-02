@@ -27,12 +27,16 @@ namespace Plague.inc_STEAMA
         {
 
         }
-        
+
+        private void panelMainMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
     public class City 
     {
-        Dictionary<City, double> neighbors;
+        private Dictionary<City, double> neighbors;
         private int penduduk, waktuInfeksiAwal;
         public int getP()
         {
@@ -50,8 +54,7 @@ namespace Plague.inc_STEAMA
 
     public class PlagueInc 
     {
-        public Dictionary<City, double> Neighborhood;
-    public double fungsiLogistik(City kota, int hari)
+        public double fungsiLogistik(City kota, int hari)
         {
             return (kota.getP() / (1 + (kota.getP() - 1)*Math.Exp(-0.25*hari-kota.getT())));
         }

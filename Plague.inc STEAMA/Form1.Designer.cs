@@ -62,6 +62,7 @@
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(836, 522);
             this.panelMainMenu.TabIndex = 2;
+            this.panelMainMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainMenu_Paint);
             // 
             // Form1
             // 
