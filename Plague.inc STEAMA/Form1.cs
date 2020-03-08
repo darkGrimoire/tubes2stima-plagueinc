@@ -100,34 +100,34 @@ namespace Plague.inc_STEAMA
             return Convert.ToInt32(Math.Ceiling(Math.Log((A.getPenduduk() * A.getNeighbors(B) - 1) / (A.getPenduduk() - 1)) / (-0.25)));
         }
 
-        public void mulaiPenyebaran(City kotaAwal, int batasHari, List<City> antrian)
+        public void mulaiPenyebaran(City kotaAwal, int batasHari)
         {
-            List<City> tempAntrian = antrian;
+            List<City> tempAntrian = new List<City>();
+            tempAntrian.Add(kotaAwal);
             kotaAwal.setStatusInfeksi();
-            for (int i =0; i < jumlahKota; i++)
+
+            while (tempAntrian.Count != 0)
             {
-                City kotaSelanjutnya = daftarKota[i];
-                if ( (kotaAwal != kotaSelanjutnya) && (kotaAwal.getNeighbors(kotaSelanjutnya) != 0) )
+                City tempKota = tempAntrian[0];
+                tempAntrian.RemoveAt(0);
+                for (int i = 0; i < jumlahKota; i++)
                 {
-                    double probabilitasPenyebaran = fungsiPenyebaran(kotaAwal, kotaSelanjutnya, batasHari);
-                    if (probabilitasPenyebaran > 1)
+                    City kotaSelanjutnya = daftarKota[i];
+                    if ((tempKota != kotaSelanjutnya) && (tempKota.getNeighbors(kotaSelanjutnya) != 0))
                     {
-                        int waktuPenyebaran = getWaktuPenyebaran(kotaAwal, kotaSelanjutnya);
-                        if (!kotaSelanjutnya.getStatusInfeksi())
+                        double probabilitasPenyebaran = fungsiPenyebaran(tempKota, kotaSelanjutnya, batasHari);
+                        if (probabilitasPenyebaran > 1)
                         {
-                            kotaSelanjutnya.setStatusInfeksi();
-                            kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran);
-                            tempAntrian.Add(kotaSelanjutnya);
-                        } 
+                            int waktuPenyebaran = getWaktuPenyebaran(tempKota, kotaSelanjutnya);
+                            if (!kotaSelanjutnya.getStatusInfeksi())
+                            {
+                                kotaSelanjutnya.setStatusInfeksi();
+                                kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran);
+                                tempAntrian.Add(kotaSelanjutnya);
+                            }
+                        }
                     }
                 }
-            }
-
-            if (tempAntrian.Count != 0)
-            {
-                City next = tempAntrian[0];
-                tempAntrian.RemoveAt(0);
-                mulaiPenyebaran(next, batasHari, tempAntrian);
             }
         }
 
