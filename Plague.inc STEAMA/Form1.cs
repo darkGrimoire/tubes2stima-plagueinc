@@ -95,8 +95,14 @@ namespace Plague.inc_STEAMA
             return fungsiLogistik(A, hari) * A.getNeighbors(B);
         }
 
-        public void mulaiPenyebaran(City kotaAwal, int batasHari)
+        public int getWaktuPenyebaran(City A, City B)
         {
+            return Convert.ToInt32(Math.Ceiling(Math.Log((A.getPenduduk() * A.getNeighbors(B) - 1) / (A.getPenduduk() - 1)) / (-0.25)));
+        }
+
+        public void mulaiPenyebaran(City kotaAwal, int batasHari, List<City> antrian)
+        {
+            List<City> tempAntrian = antrian;
             kotaAwal.setStatusInfeksi();
             for (int i =0; i < jumlahKota; i++)
             {
@@ -106,17 +112,23 @@ namespace Plague.inc_STEAMA
                     double probabilitasPenyebaran = fungsiPenyebaran(kotaAwal, kotaSelanjutnya, batasHari);
                     if (probabilitasPenyebaran > 1)
                     {
-                        int waktuPenyebaran = Convert.ToInt32( Math.Ceiling( Math.Log( (kotaAwal.getPenduduk()*kotaAwal.getNeighbors(kotaSelanjutnya)-1) / (kotaAwal.getPenduduk() - 1) ) / (-0.25) ) );
+                        int waktuPenyebaran = getWaktuPenyebaran(kotaAwal, kotaSelanjutnya);
                         if (!kotaSelanjutnya.getStatusInfeksi())
                         {
                             kotaSelanjutnya.setStatusInfeksi();
                             kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran);
-                            mulaiPenyebaran(kotaSelanjutnya, batasHari);
+                            tempAntrian.Add(kotaSelanjutnya);
                         } 
                     }
                 }
             }
 
+            if (tempAntrian.Count != 0)
+            {
+                City next = tempAntrian[0];
+                tempAntrian.RemoveAt(0);
+                mulaiPenyebaran(next, batasHari, tempAntrian);
+            }
         }
 
         
