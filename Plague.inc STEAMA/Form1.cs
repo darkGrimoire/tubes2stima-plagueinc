@@ -113,13 +113,15 @@ namespace Plague.inc_STEAMA
 
             while (tempAntrian.Count != 0)
             {
-                City prevKota = kotaAwal;
-                City nowKota = tempAntrian[0];
+                City prevKota = kotaAwal; /* Menampung City yang sebelumnya dicek */
+                City nowKota = tempAntrian[0]; /*Menampung City yang akan dicek */
                 tempAntrian.RemoveAt(0);
                 for (int i = 0; i < jumlahKota; i++)
                 {
                     City kotaSelanjutnya = daftarKota[i];
-                    if ((nowKota != kotaSelanjutnya) && (nowKota.getNeighbors(kotaSelanjutnya) != 0) && (kotaSelanjutnya != prevKota) )
+                    if ((nowKota != kotaSelanjutnya) && 
+                        (nowKota.getNeighbors(kotaSelanjutnya) != 0) && 
+                        (kotaSelanjutnya != prevKota) )
                     {
                         double probabilitasPenyebaran = fungsiPenyebaran(nowKota, kotaSelanjutnya, batasHari);
                         if (probabilitasPenyebaran > 1)
