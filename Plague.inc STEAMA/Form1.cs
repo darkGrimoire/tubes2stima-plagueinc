@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace Plague.inc_STEAMA
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panelLowerThird_Paint(object sender, PaintEventArgs e)
@@ -39,15 +40,97 @@ namespace Plague.inc_STEAMA
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        bool hasStarted = false;
+        private void startButton_Click(object sender, EventArgs e)
         {
-            string temp2 = textBox2.Text;
+            if (!hasStarted)
+            {
+            hasStarted = true;
+            string temp2 = textBoxHari.Text;
             int hari = Convert.ToInt32(temp2);
             PlagueInc testing = new PlagueInc();
-            string yes = testing.mulaiPenyebaran(testing.getCity(), hari);
-            textBox3.Text = yes;
+            string yes = testing.mulaiPenyebaran(hari);
+            textBoxHasil.Text = yes;
+            }
+        }
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            if (hasStarted)
+            {
+                hasStarted = false;
+                textBoxHari.Text = "Hari Infeksi ke:";
+                textBoxHasil.Text = "Hasil";
+                textBoxPeta.Text = "File Peta:";
+                textBoxPopulasi.Text = "File Populasi";
+                textBoxPeta.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+                textBoxHari.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+                textBoxPopulasi.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            }
+        }
+        private void browseButtonPeta_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "txt",
+                Filter = "txt files (*.txt)|*.txt",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBoxPeta.TextAlign = HorizontalAlignment.Right;
+                textBoxPeta.Text = openFileDialog1.FileName;
+                textBoxPeta.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+        private void browseButtonPopulasi_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "txt",
+                Filter = "txt files (*.txt)|*.txt",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBoxPopulasi.TextAlign = HorizontalAlignment.Right;
+                textBoxPopulasi.Text = openFileDialog1.FileName;
+                textBoxPopulasi.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
         }
 
+        bool hasBeenClicked = false;
+
+        private void textBoxHari_Click(object sender, EventArgs e)
+        {
+            if (!hasBeenClicked)
+            {
+                textBoxHari.ForeColor = System.Drawing.SystemColors.WindowText;
+                textBoxHari.Text = "";
+                hasBeenClicked = true;
+            }
+        }
     }
 
     public class City 
@@ -75,7 +158,14 @@ namespace Plague.inc_STEAMA
         }
         public double getNeighbors(City B)
         {
-            return neighbors[B];
+            if (this.neighbors.ContainsKey(B))
+            {
+                return neighbors[B];
+            }
+            else
+            {
+                return 0;
+            }
         }
         public bool getStatusInfeksi()
         {
@@ -94,9 +184,9 @@ namespace Plague.inc_STEAMA
         {
             this.waktuInfeksiAwal = waktuInfeksiAwal;
         }
-        public void setNeighbors(City B, double test)
+        public void setNeighbors(City B, double trValue)
         {
-            this.neighbors.Add(B, test);
+            this.neighbors.Add(B, trValue);
         }
        
         public void setStatusInfeksi()
@@ -109,7 +199,7 @@ namespace Plague.inc_STEAMA
     {
         private List<City> daftarKota;
         private int jumlahKota;
-        
+        private string kotaAwalInfeksi;
 
         public PlagueInc ()
         {
@@ -136,9 +226,48 @@ namespace Plague.inc_STEAMA
             daftarKota.Add(c);
             daftarKota.Add(d);
         }
-        public City getCity()
+
+        public PlagueInc(string filePeta, string filePopulasi)
         {
-            return this.daftarKota[0];
+            this.bacaPopulasi(filePopulasi);
+            this.bacaPeta(filePeta);
+        }
+
+        public void bacaPopulasi(string filePopulasi)
+        {
+            this.daftarKota = new List<City>();
+            string[] lines = File.ReadAllLines(filePopulasi);
+            bool first = true;
+            foreach (string line in lines)
+            {
+                string[] words = line.Split(' ');
+                if (first)
+                {
+                    this.jumlahKota = Convert.ToInt32(words[0]);
+                    this.kotaAwalInfeksi = words[1];
+                    first = false;
+                }
+                else
+                {
+                    City X = new City(Convert.ToInt32(words[1]), words[0]);
+                    this.daftarKota.Add(X);
+                }
+            }
+        }
+
+        public void bacaPeta(string filePeta)
+        {
+            string[] lines = File.ReadAllLines(filePeta);
+            int num = Convert.ToInt32(lines[0]);
+            for (int i = 1; i < num; i++)
+            {
+                string[] words = lines[i].Split(' ');
+                this.getCity(words[0]).setNeighbors(this.getCity(words[1]), double.Parse(words[2], System.Globalization.CultureInfo.InvariantCulture));
+            }
+        }
+        public City getCity(string nama)
+        {
+            return this.daftarKota.Find(x => x.getNama() == nama);
         }
         
         
@@ -175,8 +304,9 @@ namespace Plague.inc_STEAMA
             }
         }
 
-        public string mulaiPenyebaran(City kotaAwal, int batasHari)
+        public string mulaiPenyebaran(int batasHari)
         {
+            City kotaAwal = this.getCity(kotaAwalInfeksi);
             List<City> tempAntrian = new List<City>();  /* Queue dari City yang akan dicek */
             tempAntrian.Add(kotaAwal);                  /* Menambah City tempat infeksi pertama kali muncul ke Queue */
             kotaAwal.setStatusInfeksi();

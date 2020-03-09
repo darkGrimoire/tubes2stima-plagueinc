@@ -7,3 +7,12 @@ C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\
 C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.csproj.GenerateResource.cache
 C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.exe
 C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.pdb
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Plague.inc STEAMA.exe.config
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Plague.inc STEAMA.exe
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Plague.inc STEAMA.pdb
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.csprojAssemblyReference.cache
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc_STEAMA.Form1.resources
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc_STEAMA.Properties.Resources.resources
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.csproj.GenerateResource.cache
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.exe
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.pdb
