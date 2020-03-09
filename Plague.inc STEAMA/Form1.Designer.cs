@@ -43,6 +43,7 @@
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(200, 571);
             this.panelSideMenu.TabIndex = 0;
+            this.panelSideMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideMenu_Paint);
             // 
             // panelLowerThird
             // 
@@ -56,7 +57,7 @@
             // 
             // panelMainMenu
             // 
-            this.panelMainMenu.BackColor = System.Drawing.Color.White;
+            this.panelMainMenu.BackColor = System.Drawing.Color.Black;
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMainMenu.Location = new System.Drawing.Point(200, 0);
             this.panelMainMenu.Name = "panelMainMenu";

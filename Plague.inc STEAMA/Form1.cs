@@ -32,6 +32,11 @@ namespace Plague.inc_STEAMA
         {
 
         }
+
+        private void panelSideMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
     public class City 
@@ -108,17 +113,18 @@ namespace Plague.inc_STEAMA
 
             while (tempAntrian.Count != 0)
             {
-                City tempKota = tempAntrian[0];
+                City prevKota = kotaAwal;
+                City nowKota = tempAntrian[0];
                 tempAntrian.RemoveAt(0);
                 for (int i = 0; i < jumlahKota; i++)
                 {
                     City kotaSelanjutnya = daftarKota[i];
-                    if ((tempKota != kotaSelanjutnya) && (tempKota.getNeighbors(kotaSelanjutnya) != 0))
+                    if ((nowKota != kotaSelanjutnya) && (nowKota.getNeighbors(kotaSelanjutnya) != 0) && (kotaSelanjutnya != prevKota) )
                     {
-                        double probabilitasPenyebaran = fungsiPenyebaran(tempKota, kotaSelanjutnya, batasHari);
+                        double probabilitasPenyebaran = fungsiPenyebaran(nowKota, kotaSelanjutnya, batasHari);
                         if (probabilitasPenyebaran > 1)
                         {
-                            int waktuPenyebaran = getWaktuPenyebaran(tempKota, kotaSelanjutnya);
+                            int waktuPenyebaran = getWaktuPenyebaran(nowKota, kotaSelanjutnya);
                             if (!kotaSelanjutnya.getStatusInfeksi())
                             {
                                 kotaSelanjutnya.setStatusInfeksi();
