@@ -48,7 +48,7 @@ namespace Plague.inc_STEAMA
             hasStarted = true;
             string temp2 = textBoxHari.Text;
             int hari = Convert.ToInt32(temp2);
-            PlagueInc testing = new PlagueInc();
+            PlagueInc testing = new PlagueInc(textBoxPeta.Text, textBoxPopulasi.Text);
             string yes = testing.mulaiPenyebaran(hari);
             textBoxHasil.Text = yes;
             }
@@ -273,8 +273,8 @@ namespace Plague.inc_STEAMA
         
         public double fungsiLogistik(City kota, int hari)
         {
-            /*return ( kota.getPenduduk() / (1 + (kota.getPenduduk() - 1)*Math.Exp(-0.25*hari-kota.getPenduduk())) );*/
-            return hari * kota.getPenduduk() / 20;
+            return (kota.getPenduduk() / (1 + (kota.getPenduduk() - 1) * Math.Exp(-0.25 * hari)));
+            /*return hari * kota.getPenduduk() / 20;*/
         }
 
         public double fungsiPenyebaran(City A, City B, int hari)
@@ -284,16 +284,7 @@ namespace Plague.inc_STEAMA
 
         public int getWaktuPenyebaran(City A, City B)
         {
-            /* double temp =Math.Log((A.getPenduduk() * A.getNeighbors(B) - 1) / (A.getPenduduk() - 1)) / (-0.25);
-               if (temp - Math.Floor(temp) > 0)
-               {
-                    return Convert.ToInt32(Math.Ceiling(temp));
-               }
-               else
-               {
-                    return Convert.ToInt32(temp + 1);
-               }*/
-            double temp = 20 / ( A.getPenduduk() * A.getNeighbors(B) )  ;
+            double temp = Math.Log(( (A.getPenduduk() * A.getNeighbors(B)) - 1) / (A.getPenduduk() - 1)) / (-0.25);
             if (temp - Math.Floor(temp) > 0)
             {
                 return Convert.ToInt32(Math.Ceiling(temp));
@@ -302,6 +293,15 @@ namespace Plague.inc_STEAMA
             {
                 return Convert.ToInt32(temp + 1);
             }
+            /*double temp = 20 / ( A.getPenduduk() * A.getNeighbors(B) )  ;
+            if (temp - Math.Floor(temp) > 0)
+            {
+                return Convert.ToInt32(Math.Ceiling(temp));
+            }
+            else
+            {
+                return Convert.ToInt32(temp + 1);
+            }*/
         }
 
         public string mulaiPenyebaran(int batasHari)
