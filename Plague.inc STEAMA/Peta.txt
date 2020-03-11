@@ -1,9 +1,9 @@
 8
-A B 0.02
-A C 0.005
-B A 0.005
+Ali B 0.02
+Ali C 0.005
+B Ali 0.005
 B D 0.005
-C A 0.1
+C Ali 0.1
 C B 0.1
-D A 0.05
+D Ali 0.05
 D C 0.1
