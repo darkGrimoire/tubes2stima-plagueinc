@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.panelLowerThird = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelMainMenu = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
             this.browseButtonPopulasi = new System.Windows.Forms.Button();
             this.textBoxPopulasi = new System.Windows.Forms.TextBox();
@@ -37,15 +42,20 @@
             this.startButton = new System.Windows.Forms.Button();
             this.textBoxHari = new System.Windows.Forms.TextBox();
             this.textBoxPeta = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Maxbtn = new System.Windows.Forms.Button();
+            this.Minbtn = new System.Windows.Forms.Button();
+            this.Exitbtn = new System.Windows.Forms.Button();
+            this.panelLowerThird.SuspendLayout();
             this.panelMainMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLowerThird
             // 
             this.panelLowerThird.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelLowerThird.Controls.Add(this.label5);
+            this.panelLowerThird.Controls.Add(this.label4);
             this.panelLowerThird.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLowerThird.Location = new System.Drawing.Point(0, 521);
             this.panelLowerThird.Name = "panelLowerThird";
@@ -53,8 +63,31 @@
             this.panelLowerThird.TabIndex = 1;
             this.panelLowerThird.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLowerThird_Paint);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(0, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(388, 17);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "For Centers of Fictional Disease Control and Prevention only";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(190, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "© Sabeb Development Team";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // panelMainMenu
             // 
+            this.panelMainMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelMainMenu.BackColor = System.Drawing.Color.Black;
             this.panelMainMenu.Controls.Add(this.label3);
             this.panelMainMenu.Controls.Add(this.label2);
@@ -66,12 +99,48 @@
             this.panelMainMenu.Controls.Add(this.startButton);
             this.panelMainMenu.Controls.Add(this.textBoxHari);
             this.panelMainMenu.Controls.Add(this.textBoxPeta);
-            this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMainMenu.Name = "panelMainMenu";
-            this.panelMainMenu.Size = new System.Drawing.Size(1036, 522);
+            this.panelMainMenu.Size = new System.Drawing.Size(1036, 521);
             this.panelMainMenu.TabIndex = 2;
             this.panelMainMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainMenu_Paint);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cabin", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(432, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(165, 29);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Masukkan File:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cabin", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(354, 244);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(172, 29);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Masukkan Hari:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cabin", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(353, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(312, 35);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "DISEASE SIMULATION";
             // 
             // resetButton
             // 
@@ -149,55 +218,87 @@
             this.textBoxPeta.Text = "File Peta";
             this.textBoxPeta.TextChanged += new System.EventHandler(this.textBoxPeta_TextChanged);
             // 
-            // label1
+            // panel1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cabin", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(353, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(312, 35);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "DISEASE SIMULATION";
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.Maxbtn);
+            this.panel1.Controls.Add(this.Minbtn);
+            this.panel1.Controls.Add(this.Exitbtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1036, 46);
+            this.panel1.TabIndex = 11;
             // 
-            // label2
+            // Maxbtn
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cabin", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(354, 244);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 29);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Masukkan Hari:";
+            this.Maxbtn.BackColor = System.Drawing.Color.Black;
+            this.Maxbtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Maxbtn.FlatAppearance.BorderSize = 0;
+            this.Maxbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.Maxbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Maxbtn.Font = new System.Drawing.Font("Cabin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Maxbtn.ForeColor = System.Drawing.Color.White;
+            this.Maxbtn.Location = new System.Drawing.Point(898, 0);
+            this.Maxbtn.Name = "Maxbtn";
+            this.Maxbtn.Size = new System.Drawing.Size(46, 46);
+            this.Maxbtn.TabIndex = 14;
+            this.Maxbtn.Text = " ▣";
+            this.Maxbtn.UseVisualStyleBackColor = false;
+            this.Maxbtn.Click += new System.EventHandler(this.Maxbtn_Click);
             // 
-            // label3
+            // Minbtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cabin", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(432, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 29);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Masukkan File:";
+            this.Minbtn.BackColor = System.Drawing.Color.Black;
+            this.Minbtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Minbtn.FlatAppearance.BorderSize = 0;
+            this.Minbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.Minbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minbtn.Font = new System.Drawing.Font("Cabin", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minbtn.ForeColor = System.Drawing.Color.White;
+            this.Minbtn.Location = new System.Drawing.Point(944, 0);
+            this.Minbtn.Margin = new System.Windows.Forms.Padding(0);
+            this.Minbtn.Name = "Minbtn";
+            this.Minbtn.Size = new System.Drawing.Size(46, 46);
+            this.Minbtn.TabIndex = 13;
+            this.Minbtn.Text = "-";
+            this.Minbtn.UseVisualStyleBackColor = false;
+            this.Minbtn.Click += new System.EventHandler(this.Minbtn_Click);
+            // 
+            // Exitbtn
+            // 
+            this.Exitbtn.BackColor = System.Drawing.Color.Black;
+            this.Exitbtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Exitbtn.FlatAppearance.BorderSize = 0;
+            this.Exitbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.Exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exitbtn.Font = new System.Drawing.Font("Cabin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exitbtn.ForeColor = System.Drawing.Color.White;
+            this.Exitbtn.Location = new System.Drawing.Point(990, 0);
+            this.Exitbtn.Name = "Exitbtn";
+            this.Exitbtn.Size = new System.Drawing.Size(46, 46);
+            this.Exitbtn.TabIndex = 12;
+            this.Exitbtn.Text = " X";
+            this.Exitbtn.UseVisualStyleBackColor = false;
+            this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 571);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMainMenu);
             this.Controls.Add(this.panelLowerThird);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Plague .inc - STEAMA ver.";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panelLowerThird.ResumeLayout(false);
+            this.panelLowerThird.PerformLayout();
             this.panelMainMenu.ResumeLayout(false);
             this.panelMainMenu.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -215,6 +316,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Exitbtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button Minbtn;
+        private System.Windows.Forms.Button Maxbtn;
     }
 }
 

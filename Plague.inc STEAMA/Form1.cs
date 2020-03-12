@@ -22,6 +22,13 @@ namespace Plague.inc_STEAMA
             InitializeComponent();
         }
 
+
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.FormBorderStyle = FormBorderStyle.None;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -140,6 +147,37 @@ namespace Plague.inc_STEAMA
         {
             hasStarted = false;
         }
+
+        private void Exitbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        } 
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+        private bool maks = false;
+        private void Maxbtn_Click(object sender, EventArgs e)
+        {
+            if (!maks)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                maks = true;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                maks = false;
+            }
+        }
+
+        private void Minbtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        
     }
 
     public class City 
@@ -325,7 +363,7 @@ namespace Plague.inc_STEAMA
         {
             City kotaAwal = this.getCity(kotaAwalInfeksi);
             List<City> tempAntrian = new List<City>();  /* Queue dari City yang akan dicek */
-            List<string> infectedEdge = new List<string>();
+            //List<string> infectedEdge = new List<string>();
             Graph graph = new Graph();
             for (int i = 0; i < jumlahKota; i++)
             {
@@ -364,12 +402,10 @@ namespace Plague.inc_STEAMA
                                 kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran + nowKota.getWaktuInfeksiAwal());
                                 tempAntrian.Add(kotaSelanjutnya);
                                 graph.infectNode(kotaSelanjutnya.getNama());
-                                if (!infectedEdge.Contains(nowKota.getNama() + kotaSelanjutnya.getNama()) && !infectedEdge.Contains(kotaSelanjutnya.getNama() + nowKota.getNama()))
-                                {
-                                    infectedEdge.Add(nowKota.getNama() + kotaSelanjutnya.getNama());
-                                    graph.createInfectedNodeEdge(nowKota.getNama(), kotaSelanjutnya.getNama());
-                                }
+
                             }
+                            graph.createInfectedNodeEdge(nowKota.getNama(), kotaSelanjutnya.getNama());
+                           
                         }
                     }
                 }
