@@ -347,14 +347,24 @@ namespace Plague.inc_STEAMA
             City kotaAwal = this.getCity(kotaAwalInfeksi);
             List<City> tempAntrian = new List<City>();  /* Queue dari City yang akan dicek */
             Graph graph = new Graph();
-            graph.createNodeEdge("a", "b");
-            graph.createNodeEdge("a", "c");
-            graph.createNodeEdge("b", "a");
-            graph.createNodeEdge("b", "d");
-            graph.createNodeEdge("c", "a");
-            graph.createNodeEdge("c", "b");
-            graph.createNodeEdge("d", "a");
-            graph.createNodeEdge("d", "c");
+            for (int i = 0; i < jumlahKota;i++ )
+            {
+                for (int j = 0; j < jumlahKota; j++)
+                {
+                    if ( daftarKota[i].getNeighbors(daftarKota[j]) != 0 )
+                    {
+                        graph.createNodeEdge(daftarKota[i].getNama(), daftarKota[j].getNama());
+                    }
+                }
+            }
+            /*graph.createNodeEdge("A", "B");
+            graph.createNodeEdge("A", "C");
+            graph.createNodeEdge("B", "A");
+            graph.createNodeEdge("B", "D");
+            graph.createNodeEdge("C", "A");
+            graph.createNodeEdge("C", "B");
+            graph.createNodeEdge("D", "A");
+            graph.createNodeEdge("D", "C");*/
             graph.infectNode(kotaAwal.getNama());
             tempAntrian.Add(kotaAwal);                  /* Menambah City tempat infeksi pertama kali muncul ke Queue */
             kotaAwal.setStatusInfeksi();
@@ -380,7 +390,7 @@ namespace Plague.inc_STEAMA
                                 kotaSelanjutnya.setStatusInfeksi();
                                 kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran + nowKota.getWaktuInfeksiAwal());
                                 tempAntrian.Add(kotaSelanjutnya);
-                                //graph.infectNode(kotaSelanjutnya.getNama());
+                                graph.infectNode(kotaSelanjutnya.getNama());
                             }
                         }
                     }
