@@ -352,7 +352,7 @@ namespace Plague.inc_STEAMA
                     if ( (nowKota.getNeighbors(kotaSelanjutnya) != 0)  )
                     {
                         double probabilitasPenyebaran = fungsiPenyebaran(nowKota, kotaSelanjutnya, batasHari - nowKota.getWaktuInfeksiAwal());
-                        if ((probabilitasPenyebaran > 1) && (kotaSelanjutnya != prevKota))
+                        if ((probabilitasPenyebaran > 1))
                         {
                             int waktuPenyebaran = getWaktuPenyebaran(nowKota, kotaSelanjutnya);
                             if (!kotaSelanjutnya.getStatusInfeksi())
