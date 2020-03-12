@@ -35,7 +35,6 @@
             this.browseButtonPopulasi = new System.Windows.Forms.Button();
             this.textBoxPopulasi = new System.Windows.Forms.TextBox();
             this.browseButtonPeta = new System.Windows.Forms.Button();
-            this.textBoxHasil = new System.Windows.Forms.TextBox();
             this.startButton = new System.Windows.Forms.Button();
             this.textBoxHari = new System.Windows.Forms.TextBox();
             this.textBoxPeta = new System.Windows.Forms.TextBox();
@@ -50,7 +49,7 @@
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(225, 714);
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 571);
             this.panelSideMenu.TabIndex = 0;
             this.panelSideMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideMenu_Paint);
             // 
@@ -58,10 +57,9 @@
             // 
             this.panelLowerThird.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelLowerThird.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLowerThird.Location = new System.Drawing.Point(225, 652);
-            this.panelLowerThird.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelLowerThird.Location = new System.Drawing.Point(200, 521);
             this.panelLowerThird.Name = "panelLowerThird";
-            this.panelLowerThird.Size = new System.Drawing.Size(941, 62);
+            this.panelLowerThird.Size = new System.Drawing.Size(836, 50);
             this.panelLowerThird.TabIndex = 1;
             this.panelLowerThird.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLowerThird_Paint);
             // 
@@ -72,24 +70,21 @@
             this.panelMainMenu.Controls.Add(this.browseButtonPopulasi);
             this.panelMainMenu.Controls.Add(this.textBoxPopulasi);
             this.panelMainMenu.Controls.Add(this.browseButtonPeta);
-            this.panelMainMenu.Controls.Add(this.textBoxHasil);
             this.panelMainMenu.Controls.Add(this.startButton);
             this.panelMainMenu.Controls.Add(this.textBoxHari);
             this.panelMainMenu.Controls.Add(this.textBoxPeta);
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMainMenu.Location = new System.Drawing.Point(225, 0);
-            this.panelMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelMainMenu.Location = new System.Drawing.Point(200, 0);
             this.panelMainMenu.Name = "panelMainMenu";
-            this.panelMainMenu.Size = new System.Drawing.Size(941, 652);
+            this.panelMainMenu.Size = new System.Drawing.Size(836, 522);
             this.panelMainMenu.TabIndex = 2;
             this.panelMainMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainMenu_Paint);
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(215, 482);
-            this.resetButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.resetButton.Location = new System.Drawing.Point(191, 386);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(141, 64);
+            this.resetButton.Size = new System.Drawing.Size(125, 51);
             this.resetButton.TabIndex = 7;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
@@ -97,10 +92,9 @@
             // 
             // browseButtonPopulasi
             // 
-            this.browseButtonPopulasi.Location = new System.Drawing.Point(664, 114);
-            this.browseButtonPopulasi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.browseButtonPopulasi.Location = new System.Drawing.Point(590, 91);
             this.browseButtonPopulasi.Name = "browseButtonPopulasi";
-            this.browseButtonPopulasi.Size = new System.Drawing.Size(84, 29);
+            this.browseButtonPopulasi.Size = new System.Drawing.Size(75, 23);
             this.browseButtonPopulasi.TabIndex = 6;
             this.browseButtonPopulasi.Text = "Browse";
             this.browseButtonPopulasi.UseVisualStyleBackColor = true;
@@ -110,41 +104,28 @@
             // 
             this.textBoxPopulasi.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPopulasi.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxPopulasi.Location = new System.Drawing.Point(68, 115);
-            this.textBoxPopulasi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxPopulasi.Location = new System.Drawing.Point(60, 92);
             this.textBoxPopulasi.Name = "textBoxPopulasi";
             this.textBoxPopulasi.ReadOnly = true;
-            this.textBoxPopulasi.Size = new System.Drawing.Size(589, 26);
+            this.textBoxPopulasi.Size = new System.Drawing.Size(524, 22);
             this.textBoxPopulasi.TabIndex = 5;
             this.textBoxPopulasi.Text = "File Populasi";
             // 
             // browseButtonPeta
             // 
-            this.browseButtonPeta.Location = new System.Drawing.Point(664, 79);
-            this.browseButtonPeta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.browseButtonPeta.Location = new System.Drawing.Point(590, 63);
             this.browseButtonPeta.Name = "browseButtonPeta";
-            this.browseButtonPeta.Size = new System.Drawing.Size(84, 29);
+            this.browseButtonPeta.Size = new System.Drawing.Size(75, 23);
             this.browseButtonPeta.TabIndex = 4;
             this.browseButtonPeta.Text = "Browse";
             this.browseButtonPeta.UseVisualStyleBackColor = true;
             this.browseButtonPeta.Click += new System.EventHandler(this.browseButtonPeta_Click);
             // 
-            // textBoxHasil
-            // 
-            this.textBoxHasil.Location = new System.Drawing.Point(68, 266);
-            this.textBoxHasil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxHasil.Name = "textBoxHasil";
-            this.textBoxHasil.ReadOnly = true;
-            this.textBoxHasil.Size = new System.Drawing.Size(112, 26);
-            this.textBoxHasil.TabIndex = 3;
-            this.textBoxHasil.Text = "Hasil";
-            // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(68, 482);
-            this.startButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.startButton.Location = new System.Drawing.Point(60, 386);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(141, 64);
+            this.startButton.Size = new System.Drawing.Size(125, 51);
             this.startButton.TabIndex = 2;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
@@ -153,10 +134,9 @@
             // textBoxHari
             // 
             this.textBoxHari.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxHari.Location = new System.Drawing.Point(68, 162);
-            this.textBoxHari.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxHari.Location = new System.Drawing.Point(60, 130);
             this.textBoxHari.Name = "textBoxHari";
-            this.textBoxHari.Size = new System.Drawing.Size(589, 26);
+            this.textBoxHari.Size = new System.Drawing.Size(524, 22);
             this.textBoxHari.TabIndex = 1;
             this.textBoxHari.Text = "Hari Infeksi ke:";
             this.textBoxHari.Click += new System.EventHandler(this.textBoxHari_Click);
@@ -166,20 +146,19 @@
             // 
             this.textBoxPeta.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPeta.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxPeta.Location = new System.Drawing.Point(68, 80);
-            this.textBoxPeta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxPeta.Location = new System.Drawing.Point(60, 64);
             this.textBoxPeta.Name = "textBoxPeta";
             this.textBoxPeta.ReadOnly = true;
-            this.textBoxPeta.Size = new System.Drawing.Size(589, 26);
+            this.textBoxPeta.Size = new System.Drawing.Size(524, 22);
             this.textBoxPeta.TabIndex = 0;
             this.textBoxPeta.Text = "File Peta";
             this.textBoxPeta.TextChanged += new System.EventHandler(this.textBoxPeta_TextChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 714);
+            this.ClientSize = new System.Drawing.Size(1036, 571);
             this.Controls.Add(this.panelMainMenu);
             this.Controls.Add(this.panelLowerThird);
             this.Controls.Add(this.panelSideMenu);
@@ -201,7 +180,6 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.TextBox textBoxHari;
         private System.Windows.Forms.TextBox textBoxPeta;
-        private System.Windows.Forms.TextBox textBoxHasil;
         private System.Windows.Forms.Button browseButtonPeta;
         private System.Windows.Forms.Button browseButtonPopulasi;
         private System.Windows.Forms.TextBox textBoxPopulasi;

@@ -51,8 +51,7 @@ namespace Plague.inc_STEAMA
             string temp2 = textBoxHari.Text;
             int hari = Convert.ToInt32(temp2);
             PlagueInc testing = new PlagueInc(textBoxPeta.Text, textBoxPopulasi.Text);
-            string yes = testing.mulaiPenyebaran(hari);
-            textBoxHasil.Text = yes;
+            testing.mulaiPenyebaran(hari);
             }
         }
         private void resetButton_Click(object sender, EventArgs e)
@@ -61,7 +60,6 @@ namespace Plague.inc_STEAMA
             {
                 hasStarted = false;
                 textBoxHari.Text = "Hari Infeksi ke:";
-                textBoxHasil.Text = "Hasil";
                 textBoxPeta.Text = "File Peta:";
                 textBoxPopulasi.Text = "File Populasi";
                 textBoxPeta.ForeColor = System.Drawing.SystemColors.InactiveCaption;
@@ -222,6 +220,11 @@ namespace Plague.inc_STEAMA
             this.graph.FindNode(name).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
         }
 
+        public void infectEdge(string name1, string name2)
+        {
+            this.graph.AddEdge(name1, name2).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+        }
+
         public void showResult()
         {
             this.viewer.Graph = this.graph;
@@ -316,7 +319,7 @@ namespace Plague.inc_STEAMA
             }*/
         }
 
-        public string mulaiPenyebaran(int batasHari)
+        public void mulaiPenyebaran(int batasHari)
         {
             City kotaAwal = this.getCity(kotaAwalInfeksi);
             List<City> tempAntrian = new List<City>();  /* Queue dari City yang akan dicek */
@@ -358,20 +361,13 @@ namespace Plague.inc_STEAMA
                                 tempAntrian.Add(kotaSelanjutnya);
                                 graph.infectNode(kotaSelanjutnya.getNama());
                             }
+                            graph.infectEdge(nowKota.getNama(), kotaSelanjutnya.getNama());
                         }
                     }
                 }
             }
-            string tempText = "";
-            for (int i = 0; i< jumlahKota; i++)
-            {
-                if (daftarKota[i].getStatusInfeksi())
-                {
-                    tempText = tempText + daftarKota[i].getNama() + " ";
-                }
-            }
+            
             graph.showResult();
-            return tempText;
 
         }
 

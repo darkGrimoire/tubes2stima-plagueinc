@@ -1,0 +1,11 @@
+/*return hari * kota.getPenduduk() / 20;*/
+
+/*double temp = 20 / (A.getPenduduk() * A.getNeighbors(B));
+if (temp - Math.Floor(temp) > 0)
+{
+      return Convert.ToInt32(Math.Ceiling(temp));
+}
+else
+{
+      return Convert.ToInt32(temp + 1);
+}*/
