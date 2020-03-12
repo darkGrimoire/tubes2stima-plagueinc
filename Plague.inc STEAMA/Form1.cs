@@ -239,32 +239,6 @@ namespace Plague.inc_STEAMA
         private int jumlahKota;
         private string kotaAwalInfeksi;
 
-        public PlagueInc ()
-        {
-            this.jumlahKota = 4;
-            this.daftarKota = new List<City>();
-            City a = new City(1000, "a");
-            City b = new City(5000, "b");
-            City c = new City(1000, "c");
-            City d = new City(1000, "d");
-            a.setNeighbors(b, 0.02);            
-            a.setNeighbors(c, 0.005);
-            a.setNeighbors(d, 0);
-            b.setNeighbors(a, 0.005);            
-            b.setNeighbors(c, 0);
-            b.setNeighbors(d, 0.005);
-            c.setNeighbors(a, 0.1);
-            c.setNeighbors(b, 0.1);
-            c.setNeighbors(d, 0);
-            d.setNeighbors(a, 0.05);
-            d.setNeighbors(b, 0);
-            d.setNeighbors(c, 0.1);
-            daftarKota.Add(a);
-            daftarKota.Add(b);
-            daftarKota.Add(c);
-            daftarKota.Add(d);
-        }
-
         public PlagueInc(string filePeta, string filePopulasi)
         {
             this.bacaPopulasi(filePopulasi);
@@ -322,7 +296,7 @@ namespace Plague.inc_STEAMA
 
         public int getWaktuPenyebaran(City A, City B)
         {
-            double temp = Math.Log(( (A.getPenduduk() * A.getNeighbors(B)) - 1) / (A.getPenduduk() - 1)) / (-0.25);
+            double temp = Math.Log(((A.getPenduduk() * A.getNeighbors(B)) - 1) / (A.getPenduduk() - 1)) / (-0.25);
             if (temp - Math.Floor(temp) > 0)
             {
                 return Convert.ToInt32(Math.Ceiling(temp));
@@ -331,7 +305,7 @@ namespace Plague.inc_STEAMA
             {
                 return Convert.ToInt32(temp + 1);
             }
-            /*double temp = 20 / ( A.getPenduduk() * A.getNeighbors(B) )  ;
+            /*double temp = 20 / (A.getPenduduk() * A.getNeighbors(B));
             if (temp - Math.Floor(temp) > 0)
             {
                 return Convert.ToInt32(Math.Ceiling(temp));
@@ -357,14 +331,6 @@ namespace Plague.inc_STEAMA
                     }
                 }
             }
-            /*graph.createNodeEdge("A", "B");
-            graph.createNodeEdge("A", "C");
-            graph.createNodeEdge("B", "A");
-            graph.createNodeEdge("B", "D");
-            graph.createNodeEdge("C", "A");
-            graph.createNodeEdge("C", "B");
-            graph.createNodeEdge("D", "A");
-            graph.createNodeEdge("D", "C");*/
             graph.infectNode(kotaAwal.getNama());
             tempAntrian.Add(kotaAwal);                  /* Menambah City tempat infeksi pertama kali muncul ke Queue */
             kotaAwal.setStatusInfeksi();
