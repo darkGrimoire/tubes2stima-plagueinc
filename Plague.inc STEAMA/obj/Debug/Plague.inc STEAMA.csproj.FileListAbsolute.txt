@@ -23,3 +23,11 @@ C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\
 C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.Drawing.xml
 C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
 C:\Users\RSP\Desktop\Desktop-akademik\sem.4\Stima\Tubes_2\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.csproj.CopyComplete
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\AutomaticGraphLayout.dll
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.dll
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.Drawing.dll
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.xml
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.Drawing.xml
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
+C:\Users\Faris Rizki Ekananda\Documents\GitHub\tubes2stima-plagueinc\Plague.inc STEAMA\obj\Debug\Plague.inc STEAMA.csproj.CopyComplete

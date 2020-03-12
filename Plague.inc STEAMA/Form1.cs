@@ -59,6 +59,7 @@ namespace Plague.inc_STEAMA
             if (hasStarted)
             {
                 hasStarted = false;
+                hasBeenClicked = false;
                 textBoxHari.Text = "Hari Infeksi ke:";
                 textBoxPeta.Text = "File Peta:";
                 textBoxPopulasi.Text = "File Populasi";
@@ -88,7 +89,6 @@ namespace Plague.inc_STEAMA
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                textBoxPeta.TextAlign = HorizontalAlignment.Right;
                 textBoxPeta.Text = openFileDialog1.FileName;
                 textBoxPeta.ForeColor = System.Drawing.SystemColors.WindowText;
             }
@@ -114,7 +114,6 @@ namespace Plague.inc_STEAMA
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                textBoxPopulasi.TextAlign = HorizontalAlignment.Right;
                 textBoxPopulasi.Text = openFileDialog1.FileName;
                 textBoxPopulasi.ForeColor = System.Drawing.SystemColors.WindowText;
             }
@@ -139,7 +138,7 @@ namespace Plague.inc_STEAMA
 
         private void textBoxHari_TextChanged(object sender, EventArgs e)
         {
-
+            hasStarted = false;
         }
     }
 
