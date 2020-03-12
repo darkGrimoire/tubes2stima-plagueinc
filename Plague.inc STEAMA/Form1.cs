@@ -212,15 +212,14 @@ namespace Plague.inc_STEAMA
         private Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
         public void createNodeEdge(string name1, string name2)
         {
-            this.graph.AddEdge(name1, name2);
+            this.graph.AddEdge(name1, name2).Attr.Color = Microsoft.Msagl.Drawing.Color.Black;            
         }
 
         public void infectNode(string name)
         {
             this.graph.FindNode(name).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
         }
-
-        public void infectEdge(string name1, string name2)
+        public void createInfectedNodeEdge(string name1, string name2)
         {
             this.graph.AddEdge(name1, name2).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
         }
@@ -289,7 +288,7 @@ namespace Plague.inc_STEAMA
         public double fungsiLogistik(City kota, int hari)
         {
             return (kota.getPenduduk() / (1 + (kota.getPenduduk() - 1) * Math.Exp(-0.25 * hari)));
-            /*return hari * kota.getPenduduk() / 20;*/
+            
         }
 
         public double fungsiPenyebaran(City A, City B, int hari)
@@ -308,15 +307,7 @@ namespace Plague.inc_STEAMA
             {
                 return Convert.ToInt32(temp + 1);
             }
-            /*double temp = 20 / (A.getPenduduk() * A.getNeighbors(B));
-            if (temp - Math.Floor(temp) > 0)
-            {
-                return Convert.ToInt32(Math.Ceiling(temp));
-            }
-            else
-            {
-                return Convert.ToInt32(temp + 1);
-            }*/
+            
         }
 
         public void mulaiPenyebaran(int batasHari)
@@ -324,11 +315,11 @@ namespace Plague.inc_STEAMA
             City kotaAwal = this.getCity(kotaAwalInfeksi);
             List<City> tempAntrian = new List<City>();  /* Queue dari City yang akan dicek */
             Graph graph = new Graph();
-            for (int i = 0; i < jumlahKota;i++ )
+            for (int i = 0; i < jumlahKota; i++)
             {
                 for (int j = 0; j < jumlahKota; j++)
                 {
-                    if ( daftarKota[i].getNeighbors(daftarKota[j]) != 0 )
+                    if (daftarKota[i].getNeighbors(daftarKota[j]) != 0)
                     {
                         graph.createNodeEdge(daftarKota[i].getNama(), daftarKota[j].getNama());
                     }
@@ -346,12 +337,10 @@ namespace Plague.inc_STEAMA
                 for (int i = 0; i < jumlahKota; i++)
                 {
                     City kotaSelanjutnya = daftarKota[i];
-                    if ((nowKota != kotaSelanjutnya) && 
-                        (nowKota.getNeighbors(kotaSelanjutnya) != 0) && 
-                        (kotaSelanjutnya != prevKota) )
+                    if ( (nowKota.getNeighbors(kotaSelanjutnya) != 0)  )
                     {
                         double probabilitasPenyebaran = fungsiPenyebaran(nowKota, kotaSelanjutnya, batasHari - nowKota.getWaktuInfeksiAwal());
-                        if (probabilitasPenyebaran > 1)
+                        if ((probabilitasPenyebaran > 1) && (kotaSelanjutnya != prevKota))
                         {
                             int waktuPenyebaran = getWaktuPenyebaran(nowKota, kotaSelanjutnya);
                             if (!kotaSelanjutnya.getStatusInfeksi())
@@ -361,7 +350,7 @@ namespace Plague.inc_STEAMA
                                 tempAntrian.Add(kotaSelanjutnya);
                                 graph.infectNode(kotaSelanjutnya.getNama());
                             }
-                            graph.infectEdge(nowKota.getNama(), kotaSelanjutnya.getNama());
+                            graph.createInfectedNodeEdge(nowKota.getNama(), kotaSelanjutnya.getNama());
                         }
                     }
                 }
