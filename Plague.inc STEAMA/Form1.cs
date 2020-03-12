@@ -355,7 +355,10 @@ namespace Plague.inc_STEAMA
                         if ((probabilitasPenyebaran > 1))
                         {
                             int waktuPenyebaran = getWaktuPenyebaran(nowKota, kotaSelanjutnya);
-                            if (!kotaSelanjutnya.getStatusInfeksi())
+                            if ( (kotaSelanjutnya.getStatusInfeksi()) && (waktuPenyebaran + nowKota.getWaktuInfeksiAwal() < kotaSelanjutnya.getWaktuInfeksiAwal()) ) {
+                                kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran + nowKota.getWaktuInfeksiAwal());
+                            } 
+                            else if (!kotaSelanjutnya.getStatusInfeksi())
                             {
                                 kotaSelanjutnya.setStatusInfeksi();
                                 kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran + nowKota.getWaktuInfeksiAwal());
