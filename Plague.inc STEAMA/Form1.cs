@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using Microsoft.Msagl;
+using Microsoft.Msagl.GraphViewerGdi;
 
 namespace Plague.inc_STEAMA
 {
@@ -131,6 +133,16 @@ namespace Plague.inc_STEAMA
                 hasBeenClicked = true;
             }
         }
+
+        private void textBoxPeta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxHari_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class City 
@@ -195,6 +207,32 @@ namespace Plague.inc_STEAMA
         }
     }
 
+    public class Graph
+    {
+        private System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+        private Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+        private Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
+        public void createNodeEdge(string name1, string name2)
+        {
+            this.graph.AddEdge(name1, name2);
+        }
+
+        public void infectNode(string name)
+        {
+            this.graph.FindNode(name).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
+        }
+
+        public void showResult()
+        {
+            this.viewer.Graph = this.graph;
+            this.form.SuspendLayout();
+            this.viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.form.Controls.Add(this.viewer);
+            this.form.ResumeLayout();
+            this.form.ShowDialog();
+        }
+    }
+
     public class PlagueInc 
     {
         private List<City> daftarKota;
@@ -209,10 +247,10 @@ namespace Plague.inc_STEAMA
             City b = new City(5000, "b");
             City c = new City(1000, "c");
             City d = new City(1000, "d");
-            a.setNeighbors(b, 0.02);
-            a.setNeighbors(c, 0.005); 
+            a.setNeighbors(b, 0.02);            
+            a.setNeighbors(c, 0.005);
             a.setNeighbors(d, 0);
-            b.setNeighbors(a, 0.005);
+            b.setNeighbors(a, 0.005);            
             b.setNeighbors(c, 0);
             b.setNeighbors(d, 0.005);
             c.setNeighbors(a, 0.1);
@@ -308,6 +346,16 @@ namespace Plague.inc_STEAMA
         {
             City kotaAwal = this.getCity(kotaAwalInfeksi);
             List<City> tempAntrian = new List<City>();  /* Queue dari City yang akan dicek */
+            Graph graph = new Graph();
+            graph.createNodeEdge("a", "b");
+            graph.createNodeEdge("a", "c");
+            graph.createNodeEdge("b", "a");
+            graph.createNodeEdge("b", "d");
+            graph.createNodeEdge("c", "a");
+            graph.createNodeEdge("c", "b");
+            graph.createNodeEdge("d", "a");
+            graph.createNodeEdge("d", "c");
+            graph.infectNode(kotaAwal.getNama());
             tempAntrian.Add(kotaAwal);                  /* Menambah City tempat infeksi pertama kali muncul ke Queue */
             kotaAwal.setStatusInfeksi();
             City nowKota = kotaAwal;
@@ -332,6 +380,7 @@ namespace Plague.inc_STEAMA
                                 kotaSelanjutnya.setStatusInfeksi();
                                 kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran + nowKota.getWaktuInfeksiAwal());
                                 tempAntrian.Add(kotaSelanjutnya);
+                                //graph.infectNode(kotaSelanjutnya.getNama());
                             }
                         }
                     }
@@ -345,7 +394,7 @@ namespace Plague.inc_STEAMA
                     tempText = tempText + daftarKota[i].getNama() + " ";
                 }
             }
-
+            graph.showResult();
             return tempText;
 
         }
