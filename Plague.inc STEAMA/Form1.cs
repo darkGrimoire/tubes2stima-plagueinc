@@ -229,6 +229,12 @@ namespace Plague.inc_STEAMA
             this.listOfEdges[edgeCode].Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
         }
 
+        public void revertInfectedNodeEdge(string name1, string name2)
+        {
+            string edgeCode = name1 + "|" + name2;
+            this.listOfEdges[edgeCode].Attr.Color = Microsoft.Msagl.Drawing.Color.Black;
+        }
+
         public void showResult()
         {
             this.viewer.Graph = this.graph;
