@@ -58,7 +58,15 @@ namespace Plague.inc_STEAMA
             string temp2 = textBoxHari.Text;
             int hari = Convert.ToInt32(temp2);
             PlagueInc testing = new PlagueInc(textBoxPeta.Text, textBoxPopulasi.Text);
-            testing.mulaiPenyebaran(hari);
+            if (verboseCheckBox.Checked)
+                {
+                for(int i=0;i<=hari;i++)
+                    testing.mulaiPenyebaran(i);
+                }
+                else
+                {
+                    testing.mulaiPenyebaran(hari);
+                }
             }
         }
         private void resetButton_Click(object sender, EventArgs e)
@@ -273,11 +281,12 @@ namespace Plague.inc_STEAMA
             this.listOfEdges[edgeCode].Attr.Color = Microsoft.Msagl.Drawing.Color.Black;
         }
 
-        public void showResult()
+        public void showResult(int n)
         {
             this.viewer.Graph = this.graph;
             this.form.SuspendLayout();
             this.viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.form.Text = "Hari Penyebaran ke-" + n;
             this.form.Controls.Add(this.viewer);
             this.form.ResumeLayout();
             this.form.ShowDialog();
@@ -322,7 +331,7 @@ namespace Plague.inc_STEAMA
         {
             string[] lines = File.ReadAllLines(filePeta);
             int num = Convert.ToInt32(lines[0]);
-            for (int i = 1; i < num; i++)
+            for (int i = 1; i <= num; i++)
             {
                 string[] words = lines[i].Split(' ');
                 this.getCity(words[0]).setNeighbors(this.getCity(words[1]), double.Parse(words[2], System.Globalization.CultureInfo.InvariantCulture));
@@ -401,17 +410,16 @@ namespace Plague.inc_STEAMA
                                 kotaSelanjutnya.setStatusInfeksi();
                                 kotaSelanjutnya.setWaktuInfeksiAwal(waktuPenyebaran + nowKota.getWaktuInfeksiAwal());
                                 tempAntrian.Add(kotaSelanjutnya);
-                                graph.infectNode(kotaSelanjutnya.getNama());
 
                             }
+                                graph.infectNode(kotaSelanjutnya.getNama());
                             graph.createInfectedNodeEdge(nowKota.getNama(), kotaSelanjutnya.getNama());
                            
                         }
                     }
                 }
             }
-            
-            graph.showResult();
+            graph.showResult(batasHari);
 
         }
 

@@ -46,6 +46,7 @@
             this.Maxbtn = new System.Windows.Forms.Button();
             this.Minbtn = new System.Windows.Forms.Button();
             this.Exitbtn = new System.Windows.Forms.Button();
+            this.verboseCheckBox = new System.Windows.Forms.CheckBox();
             this.panelLowerThird.SuspendLayout();
             this.panelMainMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -89,6 +90,7 @@
             // 
             this.panelMainMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelMainMenu.BackColor = System.Drawing.Color.Black;
+            this.panelMainMenu.Controls.Add(this.verboseCheckBox);
             this.panelMainMenu.Controls.Add(this.label3);
             this.panelMainMenu.Controls.Add(this.label2);
             this.panelMainMenu.Controls.Add(this.label1);
@@ -112,33 +114,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cabin", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(432, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 29);
+            this.label3.Size = new System.Drawing.Size(188, 29);
             this.label3.TabIndex = 10;
             this.label3.Text = "Masukkan File:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cabin", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(354, 244);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 29);
+            this.label2.Size = new System.Drawing.Size(191, 29);
             this.label2.TabIndex = 9;
             this.label2.Text = "Masukkan Hari:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cabin", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(353, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(312, 35);
+            this.label1.Size = new System.Drawing.Size(354, 36);
             this.label1.TabIndex = 8;
             this.label1.Text = "DISEASE SIMULATION";
             // 
@@ -195,11 +197,11 @@
             // 
             // textBoxHari
             // 
-            this.textBoxHari.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHari.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxHari.Location = new System.Drawing.Point(538, 244);
             this.textBoxHari.Name = "textBoxHari";
-            this.textBoxHari.Size = new System.Drawing.Size(158, 32);
+            this.textBoxHari.Size = new System.Drawing.Size(158, 30);
             this.textBoxHari.TabIndex = 1;
             this.textBoxHari.Text = "Hari Infeksi ke:";
             this.textBoxHari.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -237,7 +239,7 @@
             this.Maxbtn.FlatAppearance.BorderSize = 0;
             this.Maxbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.Maxbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maxbtn.Font = new System.Drawing.Font("Cabin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Maxbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Maxbtn.ForeColor = System.Drawing.Color.White;
             this.Maxbtn.Location = new System.Drawing.Point(898, 0);
             this.Maxbtn.Name = "Maxbtn";
@@ -254,7 +256,7 @@
             this.Minbtn.FlatAppearance.BorderSize = 0;
             this.Minbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.Minbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minbtn.Font = new System.Drawing.Font("Cabin", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Minbtn.ForeColor = System.Drawing.Color.White;
             this.Minbtn.Location = new System.Drawing.Point(944, 0);
             this.Minbtn.Margin = new System.Windows.Forms.Padding(0);
@@ -272,7 +274,7 @@
             this.Exitbtn.FlatAppearance.BorderSize = 0;
             this.Exitbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.Exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exitbtn.Font = new System.Drawing.Font("Cabin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exitbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exitbtn.ForeColor = System.Drawing.Color.White;
             this.Exitbtn.Location = new System.Drawing.Point(990, 0);
             this.Exitbtn.Name = "Exitbtn";
@@ -281,6 +283,17 @@
             this.Exitbtn.Text = " X";
             this.Exitbtn.UseVisualStyleBackColor = false;
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
+            // 
+            // verboseCheckBox
+            // 
+            this.verboseCheckBox.AutoSize = true;
+            this.verboseCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.verboseCheckBox.Location = new System.Drawing.Point(548, 290);
+            this.verboseCheckBox.Name = "verboseCheckBox";
+            this.verboseCheckBox.Size = new System.Drawing.Size(122, 21);
+            this.verboseCheckBox.TabIndex = 11;
+            this.verboseCheckBox.Text = "Verbose Mode";
+            this.verboseCheckBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -322,6 +335,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Minbtn;
         private System.Windows.Forms.Button Maxbtn;
+        private System.Windows.Forms.CheckBox verboseCheckBox;
     }
 }
 
